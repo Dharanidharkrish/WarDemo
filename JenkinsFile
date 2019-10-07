@@ -22,7 +22,7 @@ pipeline {
         }
         stage('deploy'){
             steps{      
-               deploy adapters: [tomcat8(credentialsId: 'TomcatUser', path: '', url: 'http://ec2-3-19-211-198.us-east-2.compute.amazonaws.com:8090/')], contextPath: '3.19.211.198', war: '/var/lib/jenkins/workspace/WarDemo/target/WarDemo.war' 
+               deploy adapters: [tomcat8(credentialsId: 'TomcatUser', path: '', url: 'http://ec2-3-19-211-198.us-east-2.compute.amazonaws.com:8090/')], contextPath: '3.19.211.198', war: 'target/WarDemo.war'
                }
                  }
      }
