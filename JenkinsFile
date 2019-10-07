@@ -22,8 +22,7 @@ pipeline {
         }
         stage('deploy'){
             steps{      
-             deploy adapters: [tomcat8(credentialsId: 'TomcatUser', path: '', url: 'http://3.19.211.198:8090')], contextPath: 'WarDemo', onFailure: false, war: '**/*.war'
-             }
+            deploy adapters: [tomcat8(credentialsId: 'a998f419-f580-4311-97ea-a7822df6df9c', path: '', url: 'http://ec2-3-19-211-198.us-east-2.compute.amazonaws.com:8090/')], contextPath: 'WarDemo', onFailure: false, war: '**/*.war'  }
                  }
      }
 }
