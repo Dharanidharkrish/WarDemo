@@ -20,6 +20,13 @@ pipeline {
               }
             } 
         }
+        stage("Nexus")
+        {
+            steps{
+            nexusArtifactUploader artifacts: [[artifactId: 'WarDemo', classifier: '', file: '/var/lib/jenkins/workspace/WarDemo/target/WarDemo.war', type: 'war']], credentialsId: 'e981b30a-0349-4076-9a25-bbd5607d10f7', groupId: 'WarDemo.CodeKillers', nexusUrl: 'ec2-18-224-155-110.us-east-2.compute.amazonaws.com:8081/nexus', nexusVersion: 'nexus2', protocol: 'http', repository: 'devopstraining', version: '1.0.0'
+            }
+        }
+        
         stage('deploy'){
             steps{      
             deploy adapters: [tomcat8(credentialsId: 'a998f419-f580-4311-97ea-a7822df6df9c', path: '', url: 'http://ec2-3-19-211-198.us-east-2.compute.amazonaws.com:8090/')], contextPath: 'WarDemo', onFailure: false, war: '**/*.war'  
