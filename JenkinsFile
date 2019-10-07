@@ -20,7 +20,7 @@ pipeline {
        stage('deploy'){
         steps{
             
-           sh 'cp  /var/lib/jenkins/workspace/DeployPipeline/target/java-tomcat-maven-example.war apache-tomcat-9.0.26/webapps'
+          deploy adapters: [tomcat8(credentialsId: 'TOMCAT_USER', path: '', url: 'http://18.224.182.140:8090/')], contextPath: '/SampleWebApp', war: 'target/WarDemo.war'
         }
        
        }
