@@ -3,7 +3,8 @@
   <head>
     <title>CodeKillers</title>
   </head>
-<body>
+<body><center>
 <h2>This is WarFile From CodeKillers </h2>
+  </center>
 </body>
 </html>
