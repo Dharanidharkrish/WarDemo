@@ -31,7 +31,7 @@ The application will be available on `http://localhost:8080`.
        <plugin>
          <groupId>org.apache.maven.plugins</groupId>
          <artifactId>maven-dependency-plugin</artifactId>
-         <version>2.3</version>
+         <version>2.3</version>Hi
          <executions>
            <execution>
              <phase>package</phase>
