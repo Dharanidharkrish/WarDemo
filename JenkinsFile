@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+   
+    stages {
+
+      stage('clean')
+            {
+                steps
+                 { 
+                    sh 'mvn clean package'
+                 }
+            }
+        stage("build & SonarQube analysis") {
+            steps {
+              withSonarQubeEnv('sonarqube') {
+                sh 'mvn clean package sonar:sonar'
+              }
+            } 
+        }
+       stage('deploy'){
+        steps{
+            
+           sh 'cp  /var/lib/jenkins/workspace/DeployPipeline/target/java-tomcat-maven-example.war apache-tomcat-9.0.26/webapps'
+        }
+       
+       }
+}
+}
